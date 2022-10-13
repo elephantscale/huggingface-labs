@@ -4,6 +4,12 @@
 
 Download the Anaconda installer for your operating system from [here](https://www.anaconda.com/products/individual#Downloads). We recommend using the graphical installer.
 
+If it still cannot recognize python, you can try this:
+
+```shell
+sudo apt install python-is-python3
+```
+
 ### Step 2) Install Hugging Face
 
 ```bash
