@@ -37,6 +37,15 @@ classifier("I've been waiting for a HuggingFace course my whole life.")
 [{'label': 'POSITIVE', 'score': 0.9598047137260437}]
 ```
 
+```{r letter-a, echo=FALSE}
+question("What number is the letter A in the English alphabet?",
+  answer("8"),
+  answer("14"),
+  answer("1", correct = TRUE),
+  answer("23")
+)
+```
+
 ### Step 2: Use a Pipeline for text generation
 
 ```python
