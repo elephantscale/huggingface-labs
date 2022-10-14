@@ -45,7 +45,7 @@ classifier("I've been waiting for a HuggingFace course my whole life.")
 
 ### Quiz 1: What was your score?
 
-### Step 2: Use a Pipeline for text generation
+### Step 2: Use a Pipeline for text classification
 
 ```python
 from transformers import pipeline
@@ -74,10 +74,37 @@ from transformers import pipeline
 
 generator = pipeline("text-generation")
 generator("In this course, we will teach you how to")
-Copied
+```
+
+* Your output should look like this
+```text
 [{'generated_text': 'In this course, we will teach you how to understand and use '
                     'data flow and data interchange when handling user data. We '
                     'will be working with one or more of the most commonly used '
                     'data flows — data flows of various types, as seen by the '
                     'HTTP'}]
+
 ```
+
+### Quiz 3: What was the generated text?
+
+### Bonus: Generate more text sequences
+
+* Use the num_return_sequences and max_length arguments to generate two sentences of 30 words each.
+
+### Step 4: Use another model for text generation
+
+```python
+from transformers import pipeline
+
+generator = pipeline("text-generation", model="distilgpt2")
+generator(
+    "In this course, we will teach you how to",
+    max_length=30,
+    num_return_sequences=2,
+)
+```
+
+### Quiz 4: What was the generated text?
+
+
