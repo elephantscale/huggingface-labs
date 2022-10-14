@@ -57,6 +57,9 @@ classifier(
  'scores': [0.8445963859558105, 0.111976258456707, 0.043427448719739914]}
 ```
 
+* Is the classification correct?
+* Can you articulate why?
+
 ### Step 3: Use a Pipeline for text generation
 
 ```python
