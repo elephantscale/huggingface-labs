@@ -1,4 +1,4 @@
-# Hugging Face install datasets
+#  Install Hugging Face datasets
 
 ### Step 1) Install datasets, you may find them useful
 
@@ -11,6 +11,11 @@ pip install datasets
 ```bash
 python -c "from datasets import load_dataset; print(load_dataset('squad', split='train')[0])"
 ```
+
+* You should see something like this
+
+![](../images/01.png)
+
 
 
 
