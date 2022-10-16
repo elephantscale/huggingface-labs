@@ -131,5 +131,24 @@ ner("My name is Sylvain and I work at Hugging Face in Brooklyn.")
 * What were the recognized entities?
 * Put in your name and place. Did it recognize you?
 
+### Step 7: Question answering
+
+```python
+from transformers import pipeline
+
+question_answerer = pipeline("question-answering")
+question_answerer(
+    question="Where do I work?",
+    context="My name is Sylvain and I work at Hugging Face in Brooklyn",
+)
+```
+
+* The answer should look as follows
+
+```text
+{'score': 0.6385916471481323, 'start': 33, 'end': 45, 'answer': 'Hugging Face'}
+```
+
+### Quiz 7: Formulate your question, let HF answer it, did it work?
 
 
