@@ -118,5 +118,18 @@ unmasker("This course will teach you all about <mask> models.", top_k=2)
 
 ### Quiz 5: What were the top two predictions?
 
+### Step 6: Entity name recognition
+
+```python
+from transformers import pipeline
+
+ner = pipeline("ner", grouped_entities=True)
+ner("My name is Sylvain and I work at Hugging Face in Brooklyn.")
+```
+
+### Quiz 6: 
+* What were the recognized entities?
+* Put in your name and place. Did it recognize you?
+
 
 
