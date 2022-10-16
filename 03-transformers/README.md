@@ -107,6 +107,16 @@ generator(
 
 ### Quiz 4: What was the generated text?
 
+### Step 5: Fill in the missing words
+
+```python
+from transformers import pipeline
+
+unmasker = pipeline("fill-mask")
+unmasker("This course will teach you all about <mask> models.", top_k=2)
+```
+
+### Quiz 5: What were the top two predictions?
 
 
 
