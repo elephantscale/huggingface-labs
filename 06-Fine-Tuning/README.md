@@ -64,3 +64,10 @@ DatasetDict({
 })  
 ```
 
+### Step 4: Look at one phrase in the dataset
+
+```python
+raw_train_dataset = raw_datasets["train"]
+raw_train_dataset[0]
+```
+
