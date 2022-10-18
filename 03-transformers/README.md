@@ -197,3 +197,10 @@ translator("Ce cours est produit par Hugging Face.")
 
 ### Quiz 9: What was the translation?
 * TODO Bonus: What other languages are enabled? Try your favorite one, or one you know.
+* Hint
+```python
+from transformers import pipeline
+
+translator = pipeline("translation", model="Helsinki-NLP/opus-mt-tc-big-en-fr ")
+translator("This course was produced by Hugging Face.")
+```
