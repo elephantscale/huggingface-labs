@@ -181,3 +181,19 @@ summarizer(
 )
 ```
 
+### Quiz 8: 
+* Try a max_length or a min_length
+* What was the format of your function call?
+
+
+### Step 9: Translation
+
+```python
+from transformers import pipeline
+
+translator = pipeline("translation", model="Helsinki-NLP/opus-mt-fr-en")
+translator("Ce cours est produit par Hugging Face.")
+```
+
+### Quiz 9: What was the translation?
+* TODO Bonus: What other languages are enabled? Try your favorite one, or one you know.
