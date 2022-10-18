@@ -76,3 +76,20 @@ raw_train_dataset[0]
 
 ![](../images/02-output.png)
 
+### Step 5: Dislay data labels
+
+* To know which integer corresponds to which label, we can inspect the features of our raw_train_dataset. This will tell us the type of each column:
+
+```python
+raw_train_dataset.features
+```
+
+* Your output
+
+```text
+{'sentence1': Value(dtype='string', id=None),
+ 'sentence2': Value(dtype='string', id=None),
+ 'label': ClassLabel(num_classes=2, names=['not_equivalent', 'equivalent'], names_file=None, id=None),
+ 'idx': Value(dtype='int32', id=None)}  
+```
+
