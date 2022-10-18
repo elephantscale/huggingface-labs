@@ -71,3 +71,8 @@ raw_train_dataset = raw_datasets["train"]
 raw_train_dataset[0]
 ```
 
+* Your output
+* (I recommend making your window wide enough to see the whole output)
+
+![](../images/02-output.png)
+
