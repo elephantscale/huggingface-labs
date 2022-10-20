@@ -119,7 +119,7 @@ tensor([[4.0195e-02, 9.5980e-01],
 
 * Now we can see that the model predicted [0.0402, 0.9598] for the first sentence and [0.9995, 0.0005] for the second one. These are recognizable probability scores.
 
-* To get the labels corresponding to each position, we can inspect the id2label attribute of the model config (more on this in the next section):
+* To get the labels corresponding to each position, we can inspect the id2label attribute of the model config (more on this later):
 
 ```python
 model.config.id2label
