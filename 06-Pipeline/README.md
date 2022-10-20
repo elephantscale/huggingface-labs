@@ -55,6 +55,22 @@ print(inputs)
 
 ![](../images/03-tensor.png)
 
+### Step 3: Investigate the model
+
+```python
+from transformers import AutoModel
+
+checkpoint = "distilbert-base-uncased-finetuned-sst-2-english"
+model = AutoModel.from_pretrained(checkpoint)
+```
+
+* Let's dump the output of the model
+
+```python
+outputs = model(**inputs)
+print(outputs.last_hidden_state.shape)
+```
+
 
 
 
