@@ -93,3 +93,32 @@ raw_train_dataset.features
  'idx': Value(dtype='int32', id=None)}  
 ```
 
+### Step 6: Check your understanding
+
+* Behind the scenes, label is of type ClassLabel, and the mapping of integers to label name is stored in the names folder. 0 corresponds to not_equivalent, and 1 corresponds to equivalent.
+
+### Quiz for Step 6
+* Look at element 15 of the training set and element 87 of the validation set. What are their labels?
+
+### Step 7: Preprocess the dataset
+* To preprocess the dataset, we need to convert the text to numbers the model can make sense of. As you saw in the previous chapter, this is done with a tokenizer. We can feed the tokenizer one sentence or a list of sentences, so we can directly tokenize all the first sentences and all the second sentences of each pair like this:
+
+```python
+from transformers import AutoTokenizer
+
+checkpoint = "bert-base-uncased"
+tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+tokenized_sentences_1 = tokenizer(raw_datasets["train"]["sentence1"])
+tokenized_sentences_2 = tokenizer(raw_datasets["train"]["sentence2"])
+```
+
+* However, **do not do this!** Why?
+* However, we can’t just pass two sequences to the model and get a prediction of whether the two sentences are paraphrases or not. We need to handle the two sequences as a pair, and apply the appropriate preprocessing. Fortunately, the tokenizer can also take a pair of sequences and prepare it the way our BERT model expects:
+* Here is what we need to do:
+
+```python
+inputs = tokenizer("This is the first sentence.", "This is the second one.")
+inputs
+```
+
+
