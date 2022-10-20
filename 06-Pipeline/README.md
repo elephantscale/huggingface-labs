@@ -69,7 +69,12 @@ model = AutoModel.from_pretrained(checkpoint)
 ```python
 outputs = model(**inputs)
 print(outputs.last_hidden_state.shape)
-```
+``` 
+
+* Here is your output
+![](../images/04-output.png)
+
+
 
 
 
