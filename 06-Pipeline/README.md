@@ -75,8 +75,62 @@ print(outputs.last_hidden_state.shape)
 
 ![](../images/04-output.png)
 
+### Step 3: Investigate the model
+
+```python
+from transformers import AutoModelForSequenceClassification
+
+checkpoint = "distilbert-base-uncased-finetuned-sst-2-english"
+model = AutoModelForSequenceClassification.from_pretrained(checkpoint)
+outputs = model(**inputs)
+print(outputs.logits.shape)
+```
+
+* Now the dimensionality is much lower
+```text
+torch.Size([2, 2])
+```
+
+### Step 4: Here are the "logits"
+
+```python
+print(outputs.logits)
+```
+
+```text
+tensor([[-1.5607,  1.6123],
+        [ 4.1692, -3.3464]], grad_fn=<AddmmBackward>)
+```
 
 
+* But what we need are the probabilities
+* ```python
+import torch
+
+predictions = torch.nn.functional.softmax(outputs.logits, dim=-1)
+print(predictions)
+```
+
+```text
+tensor([[4.0195e-02, 9.5980e-01],
+        [9.9946e-01, 5.4418e-04]], grad_fn=<SoftmaxBackward>)
+```
+
+* Now we can see that the model predicted [0.0402, 0.9598] for the first sentence and [0.9995, 0.0005] for the second one. These are recognizable probability scores.
+
+* To get the labels corresponding to each position, we can inspect the id2label attribute of the model config (more on this in the next section):
+
+```python
+model.config.id2label
+```
+
+```text
+{0: 'NEGATIVE', 1: 'POSITIVE'}
+```
+
+* Now we can conclude that the model predicted the following:
+    * First sentence: NEGATIVE: 0.0402, POSITIVE: 0.9598
+    * Second sentence: NEGATIVE: 0.9995, POSITIVE: 0.0005
 
 
 
