@@ -104,7 +104,8 @@ tensor([[-1.5607,  1.6123],
 
 
 * But what we need are the probabilities
-* ```python
+
+```python
 import torch
 
 predictions = torch.nn.functional.softmax(outputs.logits, dim=-1)
