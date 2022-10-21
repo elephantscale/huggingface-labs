@@ -14,7 +14,7 @@
 
 * TODO
 *
-### Step 2: Create a new notebook
+### Step 2: Process the data as before
 
 ```python
 import torch
@@ -120,4 +120,46 @@ tokenizer.convert_ids_to_tokens(inputs["input_ids"])
 ```
 
 * Get the following
+
+![](../images/08-tokens.png)
+
+* Now the input and the Token type ID agree
+````text
+['[CLS]', 'this', 'is', 'the', 'first', 'sentence', '.', '[SEP]', 'this', 'is', 'the', 'second', 'one', '.', '[SEP]']
+[      0,      0,    0,     0,       0,          0,   0,       0,      1,    1,     1,        1,     1,   1,       1]
+````
+
+
+### Step 8: Preprocess the training dataset
+
+```python
+tokenized_dataset = tokenizer(
+    raw_datasets["train"]["sentence1"],
+    raw_datasets["train"]["sentence2"],
+    padding=True,
+    truncation=True,
+)
+```
+
+* However, we need the complete dataset in memory
+* Instead, let us create a function
+
+```python
+def tokenize_function(example):
+    return tokenizer(example["sentence1"], example["sentence2"], truncation=True)
+```
+
+* Apply the tokenization function on all our datasets at once. We’re using batched=True in our call to map so the function is applied to multiple elements of our dataset at once, and not on each element separately. This allows for faster preprocessing.
+* And it will fit in memory because it works in a distributed fashion.
+
+```python
+tokenized_datasets = raw_datasets.map(tokenize_function, batched=True)
+tokenized_datasets
+```
+
+### Step 9: Dynamic padding
+
+* This is a bonus and right now, we are not doing it
+
+
 
