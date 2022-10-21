@@ -105,7 +105,7 @@ metric.compute(predictions=preds, references=predictions.label_ids)
 ```
 
 * You should see something like this:
-* 
+
 ![](../images/12-accuracy.png)
 
 ### Step 9: Define `compute_metrics`
@@ -142,3 +142,6 @@ trainer.train()
 ```
 
 * This time, it will report the validation loss and metrics at the end of each epoch on top of the training loss. Again, the exact accuracy/F1 score you reach might be a bit different from what we found, because of the random head initialization of the model, but it should be in the same ballpark.
+
+![](../images/13-training-completed.png)
+
