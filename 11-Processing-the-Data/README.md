@@ -102,12 +102,16 @@ tokenized_sentences_2 = tokenizer(raw_datasets["train"]["sentence2"])
 ```
 
 * However, **do not do this!** Why?
-* However, we can’t just pass two sequences to the model and get a prediction of whether the two sentences are paraphrases or not. We need to handle the two sequences as a pair, and apply the appropriate preprocessing. Fortunately, the tokenizer can also take a pair of sequences and prepare it the way our BERT model expects:
+* We can’t just pass two sequences to the model and get a prediction of whether the two sentences are paraphrases or not. We need to handle the two sequences as a pair, and apply the appropriate preprocessing. Fortunately, the tokenizer can also take a pair of sequences and prepare it the way our BERT model expects:
 * Here is what we need to do:
 
 ```python
 inputs = tokenizer("This is the first sentence.", "This is the second one.")
 inputs
 ```
+* Here is the result
+
+![](../images/07-inputs.png)
+
 
 
