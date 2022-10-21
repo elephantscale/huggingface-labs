@@ -113,5 +113,11 @@ inputs
 
 ![](../images/07-inputs.png)
 
+* Decode the IDs inside input_ids back to words:
 
+```python
+tokenizer.convert_ids_to_tokens(inputs["input_ids"])
+```
+
+* Get the following
 
