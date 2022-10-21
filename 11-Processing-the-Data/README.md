@@ -50,22 +50,8 @@ raw_datasets
 
 * You should see something like this:
 
-```text
-DatasetDict({
-    train: Dataset({
-        features: ['sentence1', 'sentence2', 'label', 'idx'],
-        num_rows: 3668
-    })
-    validation: Dataset({
-        features: ['sentence1', 'sentence2', 'label', 'idx'],
-        num_rows: 408
-    })
-    test: Dataset({
-        features: ['sentence1', 'sentence2', 'label', 'idx'],
-        num_rows: 1725
-    })
-})  
-```
+![](../images/05-raw-datasets.png)
+
 
 ### Step 4: Look at one phrase in the dataset
 
@@ -79,7 +65,7 @@ raw_train_dataset[0]
 
 ![](../images/02-output.png)
 
-### Step 5: Dislay data labels
+### Step 5: Display data labels
 
 * To know which integer corresponds to which label, we can inspect the features of our raw_train_dataset. This will tell us the type of each column:
 
