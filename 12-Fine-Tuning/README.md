@@ -105,6 +105,7 @@ metric.compute(predictions=preds, references=predictions.label_ids)
 ```
 
 * You should see something like this:
+* 
 ![](../images/12-accuracy.png)
 
 ### Step 9: Define `compute_metrics`
