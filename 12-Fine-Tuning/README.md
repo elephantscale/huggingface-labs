@@ -5,7 +5,11 @@
 #### Lab Goals:
 
 * TODO
-* TODO
+### Step 0:
+
+`pip install evaluate`
+
+* if you have not done so already
 
 ### Step 1: Summary of the steps done before
 
@@ -101,9 +105,7 @@ metric.compute(predictions=preds, references=predictions.label_ids)
 ```
 
 * You should see something like this:
-```text
-{'accuracy': 0.8578431372549019, 'f1': 0.8996539792387542}  
-```
+![](../images/12-accuracy.png)
 
 ### Step 9: Define `compute_metrics`
 
