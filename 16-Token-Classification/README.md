@@ -208,7 +208,6 @@ def tokenize_and_align_labels(examples):
     for i, labels in enumerate(all_labels):
         word_ids = tokenized_inputs.word_ids(i)
         new_labels.append(align_labels_with_tokens(labels, word_ids))
-
     tokenized_inputs["labels"] = new_labels
     return tokenized_inputs
 ```
