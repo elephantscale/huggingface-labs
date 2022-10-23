@@ -220,5 +220,54 @@ tokenized_datasets = raw_datasets.map(
 )  
 ```
 
+![](../images/22-tokenized.png)
+
+* Let’s check the result on our first example:
+
+```python
+tokenized_datasets
+```
+
+
 ### STEP 4) Fine-tuning the model with the Trainer API
+
+* Collate the tokenized datasets into a single one. Use a HuggingFace function `DataCollatorForTokenClassification`. 
+
+```python
+from transformers import DataCollatorForTokenClassification
+data_collator = DataCollatorForTokenClassification(tokenizer=tokenizer)
+```
+
+* To test this on a few samples, we can just call it on a list of examples from our tokenized training set:
+```python
+batch = data_collator([tokenized_datasets["train"][i] for i in range(2)])
+batch["labels"]
+```
+
+```text
+tensor([[-100,    3,    0,    7,    0,    0,    0,    7,    0,    0,    0, -100],
+        [-100,    1,    2, -100, -100, -100, -100, -100, -100, -100, -100, -100]])  
+``` 
+
+* Let’s compare this to the labels for the first and second elements in our dataset:
+
+```python
+for i in range(2):
+    print(tokenized_datasets["train"][i]["labels"])
+```
+
+```text
+[-100, 3, 0, 7, 0, 0, 0, 7, 0, 0, 0, -100]
+[-100, 1, 2, -100]
+```
+
+* To have the Trainer compute a metric every epoch, we will need to define a compute_metrics() function that takes the arrays of predictions and labels, and returns a dictionary with the metric names and values.
+
+* The traditional framework used to evaluate token classification prediction is seqeval. To use this metric, we first need to install the seqeval library:
+
+```python
+!pip install seqeval
+```
+
+
 
