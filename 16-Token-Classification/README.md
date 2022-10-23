@@ -50,10 +50,19 @@ raw_datasets["train"][0]["ner_tags"]
 ```
 
 ```text
-['EU', 'rejects', 'German', 'call', 'to', 'boycott', 'British', 'lamb', '.']
+[3, 0, 7, 0, 0, 0, 7, 0, 0]
 ```
 
+* Those are the labels as integers ready for training, but they’re not necessarily useful when we want to inspect the data. Like for text classification, we can access the correspondence between those integers and the label names by looking at the features attribute of our dataset:
 
+```python
+ner_feature = raw_datasets["train"].features["ner_tags"]
+ner_feature
+```
+
+```text
+Sequence(feature=ClassLabel(num_classes=9, names=['O', 'B-PER', 'I-PER', 'B-ORG', 'I-ORG', 'B-LOC', 'I-LOC', 'B-MISC', 'I-MISC'], names_file=None, id=None), length=-1, id=None)
+```
 
 
 ### STEP 2) Verify the environment
