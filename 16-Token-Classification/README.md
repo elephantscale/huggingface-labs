@@ -298,3 +298,14 @@ metric.compute(predictions=[predictions], references=[labels])
 ```
 
 
+* Note that the metric takes a list of predictions (not just one) and a list of labels. Here’s the output:
+
+```text
+{'MISC': {'precision': 1.0, 'recall': 0.5, 'f1': 0.67, 'number': 2},
+ 'ORG': {'precision': 1.0, 'recall': 1.0, 'f1': 1.0, 'number': 1},
+ 'overall_precision': 1.0,
+ 'overall_recall': 0.67,
+ 'overall_f1': 0.8,
+ 'overall_accuracy': 0.89}
+```
+
