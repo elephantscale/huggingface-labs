@@ -16,4 +16,44 @@ from datasets import load_dataset
 raw_datasets = load_dataset("conll2003")
 ```
 
+* You will see the following output:
+
+![](../images/20-data.png)
+
+* Note that the data will be reused
+* Verify that the data is reused:
+
+```python
+raw_datasets = load_dataset("conll2003")
+```
+
+* Look at the data
+
+```python
+raw_datasets
+```
+
+
+* Let’s have a look at the first element of the training set:
+```python
+raw_datasets["train"][0]["tokens"]
+```
+
+```text
+['EU', 'rejects', 'German', 'call', 'to', 'boycott', 'British', 'lamb', '.']
+```
+
+* Since we want to perform named entity recognition, we will look at the NER tags:
+
+```python
+raw_datasets["train"][0]["ner_tags"]
+```
+
+```text
+['EU', 'rejects', 'German', 'call', 'to', 'boycott', 'British', 'lamb', '.']
+```
+
+
+
+
 ### STEP 2) Verify the environment
