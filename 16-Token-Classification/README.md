@@ -64,6 +64,17 @@ ner_feature
 Sequence(feature=ClassLabel(num_classes=9, names=['O', 'B-PER', 'I-PER', 'B-ORG', 'I-ORG', 'B-LOC', 'I-LOC', 'B-MISC', 'I-MISC'], names_file=None, id=None), length=-1, id=None)
 ```
 
+* Let us look at label names:
+
+```python
+label_names = ner_feature.feature.names
+label_names
+```
+
+```text
+['O', 'B-PER', 'I-PER', 'B-ORG', 'I-ORG', 'B-LOC', 'I-LOC', 'B-MISC', 'I-MISC']
+```
+
 * What are these?
 ```text
 O means the word doesn’t correspond to any entity.
