@@ -334,4 +334,86 @@ def compute_metrics(eval_preds):
         "accuracy": all_metrics["overall_accuracy"],
     }
 ```
+* Now that this is done, we are almost ready to define our Trainer. We just need a model to fine-tune!
+
+### Step 5) Define the model
+* Since we are working on a token classification problem, we will use the AutoModelForTokenClassification class. The main thing to remember when defining this model is to pass along some information on the number of labels we have. The easiest way to do this is to pass that number with the num_labels argument, but if we want a nice inference widget working like the one we saw at the beginning of this section, it’s better to set the correct label correspondences instead.
+
+* They should be set by two dictionaries, id2label and label2id, which contain the mappings from ID to label and vice versa:
+
+```python
+id2label = {i: label for i, label in enumerate(label_names)}
+label2id = {v: k for k, v in id2label.items()}
+```
+
+* Now we can just pass them to the AutoModelForTokenClassification.from_pretrained() method, and they will be set in the model’s configuration and then properly saved and uploaded to the Hub:
+
+```python
+from transformers import AutoModelForTokenClassification
+
+model = AutoModelForTokenClassification.from_pretrained(
+    model_checkpoint,
+    id2label=id2label,
+    label2id=label2id,
+)
+```
+
+* How many labels do we have?
+
+```python
+model.config.num_labels
+```
+
+```text
+9
+```
+
+### Step 6: Fine-tuning the model
+
+* We are now ready to train our model! We just need to do two last things before we define our Trainer: log in to Hugging Face and define our training arguments. If you’re working in a notebook, there’s a convenience function to help you with this:
+
+```python
+from huggingface_hub import notebook_login
+
+notebook_login()
+```
+
+* If you’re working in a script, you can use the command line to log in with the huggingface-cli:
+
+```python
+huggingface-cli login
+```
+
+* Once this is done, we can define our TrainingArguments:
+
+```python
+from transformers import TrainingArguments
+
+args = TrainingArguments(
+    "bert-finetuned-ner",
+    evaluation_strategy="epoch",
+    save_strategy="epoch",
+    learning_rate=2e-5,
+    num_train_epochs=3,
+    weight_decay=0.01,
+    push_to_hub=True,
+)
+```
+
+* Finally, we just pass everything to the Trainer and launch the training:
+
+```python
+from transformers import Trainer
+
+trainer = Trainer(
+    model=model,
+    args=args,
+    train_dataset=tokenized_datasets["train"],
+    eval_dataset=tokenized_datasets["validation"],
+    data_collator=data_collator,
+    compute_metrics=compute_metrics,
+    tokenizer=tokenizer,
+)
+trainer.train()
+```
 
