@@ -275,6 +275,9 @@ import evaluate
 metric = evaluate.load("seqeval")
 ```
 
+![](../images/24-eval.png)
+
+
 * Get the labels for our first training example:
 
 ```python
