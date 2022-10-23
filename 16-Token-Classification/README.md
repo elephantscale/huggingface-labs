@@ -172,7 +172,6 @@ def align_labels_with_tokens(labels, word_ids):
             if label % 2 == 1:
                 label += 1
             new_labels.append(label)
-
     return new_labels
 ```
 
