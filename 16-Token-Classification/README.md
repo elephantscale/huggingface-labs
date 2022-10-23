@@ -64,5 +64,54 @@ ner_feature
 Sequence(feature=ClassLabel(num_classes=9, names=['O', 'B-PER', 'I-PER', 'B-ORG', 'I-ORG', 'B-LOC', 'I-LOC', 'B-MISC', 'I-MISC'], names_file=None, id=None), length=-1, id=None)
 ```
 
+* What are these?
+```text
+O means the word doesn’t correspond to any entity.
+B-PER/I-PER means the word corresponds to the beginning of/is inside a person entity.
+B-ORG/I-ORG means the word corresponds to the beginning of/is inside an organization entity.
+B-LOC/I-LOC means the word corresponds to the beginning of/is inside a location entity.
+B-MISC/I-MISC means the word corresponds to the beginning of/is inside a miscellaneous entity.
+```
 
-### STEP 2) Verify the environment
+* Let us decode those labels:
+
+```python
+words = raw_datasets["train"][0]["tokens"]
+labels = raw_datasets["train"][0]["ner_tags"]
+line1 = ""
+line2 = ""
+for word, label in zip(words, labels):
+    full_label = label_names[label]
+    max_length = max(len(word), len(full_label))
+    line1 += word + " " * (max_length - len(word) + 1)
+    line2 += full_label + " " * (max_length - len(full_label) + 1)
+
+print(line1)
+print(line2)
+```
+
+```text
+'EU    rejects German call to boycott British lamb .'
+'B-ORG O       B-MISC O    O  O       B-MISC  O    O'
+```
+
+
+### STEP 2) Create the tokenizer object
+
+```python
+from transformers import AutoTokenizer
+
+model_checkpoint = "bert-base-cased"
+tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
+```
+
+* Verify that we have a `fast` tokenizer
+
+```python
+tokenizer.is_fast
+```
+
+```text
+True
+```
+
