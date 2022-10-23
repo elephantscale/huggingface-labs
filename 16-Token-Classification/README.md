@@ -106,6 +106,8 @@ print(line2)
 'B-ORG O       B-MISC O    O  O       B-MISC  O    O'
 ```
 
+* Bonus
+* Print the same two sentences with their POS or chunking labels.
 
 ### STEP 2) Create the tokenizer object
 
