@@ -268,7 +268,30 @@ for i in range(2):
 
 ![](../images/23-install.png)
 
+* We can then load it via the evaluate.load() function
 
+```python
+import evaluate
+metric = evaluate.load("seqeval")
+```
 
+* Get the labels for our first training example:
+
+```python
+labels = raw_datasets["train"][0]["ner_tags"]
+labels = [label_names[i] for i in labels]
+labels
+```
+
+```text
+['B-ORG', 'O', 'B-MISC', 'O', 'O', 'O', 'B-MISC', 'O', 'O']
+``` 
+
+* We can then create fake predictions for those by just changing the value at index 2:
+```python
+predictions = labels.copy()
+predictions[2] = "O"
+metric.compute(predictions=[predictions], references=[labels])
+```
 
 
