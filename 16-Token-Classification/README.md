@@ -264,10 +264,11 @@ for i in range(2):
 * To have the Trainer compute a metric every epoch, we will need to define a compute_metrics() function that takes the arrays of predictions and labels, and returns a dictionary with the metric names and values.
 
 * The traditional framework used to evaluate token classification prediction is seqeval. To use this metric, we first need to install the seqeval library:
+* (To save yourself the trouble, you can run it in a separate terminal window)
 
-```python
-!pip install seqeval
-```
+![](../images/23-install.png)
+
+
 
 
 
