@@ -24,3 +24,16 @@
 
 ![](../images/16-bert-card.png)
 
+* Now try the model using live inference API.
+
+![](../images/17-inference-API.png)
+
+* Start with "The goal of life is [MASK]." 
+  * Let's say you get "truth" as one of the answers.
+  * Then try "The goal of truth is [MASK]."
+  * Continue with this, to discover the limitations of the model.
+
+* Investigate "Files and version." It is just like Git.
+* Notice the buttons on the right
+
+

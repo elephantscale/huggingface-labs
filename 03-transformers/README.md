@@ -2,7 +2,7 @@
 
 * In this lab we will practice the basic use of Transformers
 
-#### Lab Goals:
+### Lab Goals:
 
 * Use Transformers for:
   * Classification
