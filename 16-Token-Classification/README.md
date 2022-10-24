@@ -421,4 +421,6 @@ trainer.train()
 
 ![](../images/26-hf-update.png)
 
+![](../images/27-training-result.png)
+
 
