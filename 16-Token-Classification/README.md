@@ -415,3 +415,10 @@ trainer = Trainer(
 trainer.train()
 ```
 
+* Training will take a while, but you can follow the progress in the terminal. Once it’s done, you can go to your model page on the Hub to see the results:
+
+![](../images/25-train.png)
+
+![](../images/26-hf-update.png)
+
+
