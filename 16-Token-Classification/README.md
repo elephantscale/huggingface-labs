@@ -315,11 +315,9 @@ metric.compute(predictions=[predictions], references=[labels])
 ```python
 import numpy as np
 
-
 def compute_metrics(eval_preds):
     logits, labels = eval_preds
     predictions = np.argmax(logits, axis=-1)
-
     # Remove ignored index (special tokens) and convert to labels
     true_labels = [[label_names[l] for l in label if l != -100] for label in labels]
     true_predictions = [
