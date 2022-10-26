@@ -36,6 +36,8 @@ print([r["token_str"] for r in result])
 
 * When you use these tools, you therefore need to keep in the back of your mind that the original model you are using could very easily generate sexist, racist, or homophobic content. Fine-tuning the model on your data won’t make this intrinsic bias disappear.
 
+## Potential next steps
+
 ### Step 4: Create another test for bias
 
 ### Step 5: Bias mitigation
