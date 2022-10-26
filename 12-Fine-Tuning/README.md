@@ -4,7 +4,8 @@
 
 #### Lab Goals:
 
-* TODO
+* Fine-tune a model
+
 ### Step 0:
 
 `pip install evaluate`
