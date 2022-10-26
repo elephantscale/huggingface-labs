@@ -8,12 +8,12 @@
 
 #### Lab Goals:
 
-* TODO
+* Prepare the data for fine-tuning
 
 ### Step 1: Create an account on HuggingFace
 
-* TODO
-*
+* See above
+
 ### Step 2: Process the data as before
 
 ```python
@@ -157,9 +157,7 @@ tokenized_datasets = raw_datasets.map(tokenize_function, batched=True)
 tokenized_datasets
 ```
 
-### Step 9: Dynamic padding
 
-* This is a bonus and right now, we are not doing it
 
 
 
