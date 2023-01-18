@@ -201,7 +201,7 @@ translator("Ce cours est produit par Hugging Face.")
 ```python
 from transformers import pipeline
 
-translator = pipeline("translation", model="Helsinki-NLP/opus-mt-tc-big-en-fr ")
+translator = pipeline("translation", model="Helsinki-NLP/opus-mt-tc-big-en-fr")
 translator("This course was produced by Hugging Face.")
 ```
 * TODO this requires tuning
