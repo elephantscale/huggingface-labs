@@ -41,6 +41,12 @@ optimizer.step()
 
 ### Step 3: Load a dataset from HuggingFace
 
+**Attention!!** You may need to upgrade Pandas (in another terminal)
+
+```shell
+pip install --upgrade pandas
+```
+
 ```python
 from datasets import load_dataset
 
