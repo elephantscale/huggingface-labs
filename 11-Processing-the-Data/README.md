@@ -8,12 +8,12 @@
 
 #### Lab Goals:
 
-* TODO
+* Prepare the data for fine-tuning
 
 ### Step 1: Create an account on HuggingFace
 
-* TODO
-*
+* See above
+
 ### Step 2: Process the data as before
 
 ```python
@@ -40,6 +40,12 @@ optimizer.step()
 ```
 
 ### Step 3: Load a dataset from HuggingFace
+
+**Attention!!** You may need to upgrade Pandas (in another terminal)
+
+```shell
+pip install --upgrade pandas
+```
 
 ```python
 from datasets import load_dataset
@@ -157,9 +163,7 @@ tokenized_datasets = raw_datasets.map(tokenize_function, batched=True)
 tokenized_datasets
 ```
 
-### Step 9: Dynamic padding
 
-* This is a bonus and right now, we are not doing it
 
 
 
