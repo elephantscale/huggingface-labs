@@ -333,7 +333,6 @@ def compute_metrics(eval_preds):
     }
 ```
 * Now that this is done, we are almost ready to define our Trainer. We just need a model to fine-tune!
-
 ### Step 5) Define the model
 * Since we are working on a token classification problem, we will use the AutoModelForTokenClassification class. The main thing to remember when defining this model is to pass along some information on the number of labels we have. The easiest way to do this is to pass that number with the num_labels argument, but if we want a nice inference widget working like the one we saw at the beginning of this section, it’s better to set the correct label correspondences instead.
 
