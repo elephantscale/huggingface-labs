@@ -16,6 +16,12 @@ python -c "from datasets import load_dataset; print(load_dataset('squad', split=
 
 ![](../images/01.png)
 
+### Step 2) For the upcoming labs
+
+```bash
+pip install sentencepiece
+```
+
 
 
 
