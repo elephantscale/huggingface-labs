@@ -4,15 +4,14 @@
 
 #### Lab Goals:
 
-* Use Summarizer API
-* Analyze the implementation
+* Use HuggingFace Summarizer API
+* Compare models
 
 
 ### Step 1: Open the Summarizer API
 
-* [Summarizer FastAPI](http://52.14.40.92/docs#)
+* Open [Falconsai](https://huggingface.co/Falconsai/text_summarization)
 
-* Click on SummarizeText
 * Click on Try it out
 * Substitute "text" with the following text:
 
